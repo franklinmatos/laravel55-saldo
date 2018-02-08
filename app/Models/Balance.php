@@ -9,7 +9,9 @@
 namespace App\Models;
 
 
-class Balance
+use Illuminate\Database\Eloquent\Model;
+
+class Balance extends Model
 {
 
 }

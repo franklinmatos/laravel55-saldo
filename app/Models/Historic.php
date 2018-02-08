@@ -9,7 +9,9 @@
 namespace App\Models;
 
 
-class Historic
+use Illuminate\Database\Eloquent\Model;
+
+class Historic extends Model
 {
 
 }
