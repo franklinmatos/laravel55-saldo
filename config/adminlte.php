@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue-light',
+    'skin' => 'green',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,12 +108,28 @@ return [
     */
 
     'menu' => [
-        'Menu',
+       // 'Menu',
         [
-            'text' => 'Home',
+            'text' => 'Dashboard',
             'url'  => 'admin',
-            'icon' => 'home'
+            'icon' => 'dashboard'
         ],
+        [   
+            'text' => 'Financeiro',
+            'icon' => 'money',
+            'submenu' => [
+                [
+                    'text' => 'Saldo',
+                    'icon' => 'credit-card',
+                    'url'    => 'balance'
+                ],
+                [
+                    'text' => 'Histórico',
+                    'icon' => 'history',
+                    'url'    => 'historic'
+                ]
+            ]
+        ]
 
     ],
 
