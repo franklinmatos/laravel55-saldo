@@ -121,12 +121,12 @@ return [
                 [
                     'text' => 'Saldo',
                     'icon' => 'credit-card',
-                    'url'    => 'balance'
+                    'url'    => 'admin/balance'
                 ],
                 [
                     'text' => 'Histórico',
                     'icon' => 'history',
-                    'url'    => 'historic'
+                    'url'    => 'admin/historic'
                 ]
             ]
         ]
