@@ -29,6 +29,6 @@ class User extends Authenticatable
     ];
 
     public function balance(){
-    return $this->hasOne(Balance::class);
+        return $this->hasOne(Balance::class);
     }
 }
