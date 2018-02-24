@@ -39,4 +39,44 @@ class Balance extends Model
            ];
        }
     }
+
+
+    public function withdraw(float $value){
+        DB::beginTransaction();
+        $totalBefore = $this->amount ;
+        if( ($totalBefore - $value) < 0){
+            DB::rollback();
+            return [
+                'success' => false,
+                'message' => 'O valor de sua retirada é maior que o saldo atual.'
+            ];
+        }
+
+        $this->amount -= number_format($value, 2, '.','');
+        $withdraw =  $this->save();
+
+        $historic = auth()->user()->historics()->create([
+            'type' => 'O',
+            'amount' => $value,
+            'total_before' => $totalBefore,
+            'total_after' => $this->amount,
+            'date' => date('Ymd'),
+        ]);
+        if($withdraw && $historic){
+            DB::commit();
+            return [
+                'success' => true,
+                'message' => 'A retirada foi efetuada com sucesso!'
+            ];
+
+        }else{
+            DB::rollback();
+            return [
+                'success' => false,
+                'message' => 'Ocorreu um erro ao tentar efetuar a retirada.'
+            ];
+        }
+    }
+
+
 }
