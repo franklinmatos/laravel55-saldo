@@ -18,6 +18,7 @@
             <a href="" class="btn btn-danger"><i class="fa fa-cart-arrow-down"></i> Sacar</a>
         </div>
         <div class="box-body">
+            @include('admin.includes.messages')
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>R$ {{ number_format($amount,2,',','')}}</h3>
