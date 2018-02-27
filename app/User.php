@@ -37,4 +37,11 @@ class User extends Authenticatable
     public function historics(){
         return $this->hasMany(Historic::class);
     }
+
+    public function getEmail($semail)
+    {
+       return  $this->where('email', $semail)
+            ->get()
+            ->first();
+    }
 }

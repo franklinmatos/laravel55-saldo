@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 use DB;
+use Illuminate\Http\Request;
 
 class Balance extends Model
 {
@@ -77,6 +78,8 @@ class Balance extends Model
             ];
         }
     }
+
+
 
 
 }
