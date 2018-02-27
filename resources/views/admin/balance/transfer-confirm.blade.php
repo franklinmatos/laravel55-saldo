@@ -21,7 +21,7 @@
         <div class="box-body">
             @include('admin.includes.messages')
             <p><strong>Recebedor:</strong> {{$email->name}}</p>
-            <form method="POST" action="{{ route('confirm.transfer') }}">
+            <form method="POST" action="{{ route('transfer.store') }}">
                 {!! csrf_field() !!}
                 <input type="hidden" name="email_id" value="{{$email->id}}" />
                 <div class="form-group">

@@ -75,4 +75,8 @@ class BalanceController extends Controller
                             ->with('error','Não pode transferir par você mesmo!');
         return view('admin.balance.transfer-confirm',compact('email'));
     }
+
+    public function transferStore(Request $request){
+        dd($request->all());
+    }
 }
