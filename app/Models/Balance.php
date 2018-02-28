@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 use DB;
+
 use Illuminate\Http\Request;
 use App\User;
+
 
 class Balance extends Model
 {
@@ -50,7 +52,7 @@ class Balance extends Model
             DB::rollback();
             return [
                 'success' => false,
-                'message' => 'O valor de sua retirada é maior que o saldo atual.'
+                'message' => 'Saldo insuficiente.'
             ];
         }
 
