@@ -46,6 +46,7 @@
 
 
         </table>
+        {!! $historics->links() !!}
       </div>
 
     </div>
