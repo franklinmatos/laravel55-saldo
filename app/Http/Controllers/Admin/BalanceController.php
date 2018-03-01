@@ -99,8 +99,9 @@ class BalanceController extends Controller
         return redirect()
             ->route('admin.balance')
             ->with('error',$response['message']);
-
-
-
+    }
+    
+    public function historic(){
+        return view('admin.balance.historic');
     }
 }

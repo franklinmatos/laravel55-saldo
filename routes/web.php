@@ -16,7 +16,7 @@ $this->group(['middleware'=>['auth'],'namespace'=> 'Admin','prefix' => 'admin'],
     $this->post('store-transfer','BalanceController@transferStore')->name('transfer.store');
 
 
-    $this->post('historic','BalanceController@historic')->name('admin.historic');
+    $this->get('historic','BalanceController@historic')->name('admin.historic');
 });
 
 
