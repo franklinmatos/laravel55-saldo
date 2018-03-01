@@ -94,46 +94,6 @@ class Balance extends Model
             ];
         }
 
-
-        DB::beginTransaction();
-        /********************************************************************************
-         *  Atualiza o proprio saldo
-         *
-         ********************************************************************************/
-
-        $totalBefore = $this->amount ? $this->amount : 0 ;
-
-        $this->amount -= number_format($value, 2, '.','');
-        $transfer=  $this->save();
-
-        $historic = auth()->user()->historics()->create([
-            'type'                  => 'T',
-            'amount'                => $value,
-            'total_before'          => $totalBefore,
-            'total_after'           => $this->amount,
-            'date'                  => date('Ymd'),
-            'user_id_transaction'   => $sender->id,
-        ]);
-
-        /********************************************************************************
-         *  Atualiza o saldo do recebedor
-         *
-         ********************************************************************************/
-
-        $sendBalance = $sender->balance()->firstOrCreate([]);
-        $totalBeforeSender = $sendBalance->amount ? $sendBalance->amount : 0 ;
-
-
-
-        if( $this->amount < $value){
-            DB::rollback();
-            return [
-                'success' => false,
-                'message' => 'O valor de sua retirada é maior que o saldo atual.'
-            ];
-        }
-
-
         DB::beginTransaction();
         /********************************************************************************
          *  Atualiza o proprio saldo

@@ -30,7 +30,7 @@ class Historic extends Model
             return $types;
 
         if($this->user_id_transaction != null && $this->type != 'I')
-            return "Recebido";
+            return "Recebido (Entrada ou Transferência)";
         return $types[$type];
 
     }
