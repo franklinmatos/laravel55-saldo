@@ -6,9 +6,9 @@
     <h1>Fazer Recarga</h1>
 
     <ol class='breadcrumb'>
-        <li><a>DashBoard</a></li>
-        <li><a>Saldo</a></li>
-        <li><a>Depositar</a></li>
+        <li><a><i class="fa fa-dashboard"></i>DashBoard</a></li>
+        <li><a><i class="fa fa-credit-card-alt"></i>Saldo</a></li>
+        <li><a><i class="fa fa-cart-plus"></i> Depositar</a></li>
     </ol>
 @stop
 

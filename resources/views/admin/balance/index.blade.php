@@ -6,8 +6,8 @@
     <h1>Saldo</h1>
 
     <ol class='breadcrumb'>
-        <li><a>DashBoard</a></li>
-        <li><a>Saldo</a></li>
+        <li><a><i class="fa fa-dashboard"></i>DashBoard</a></li>
+        <li><a><i class="fa fa-credit-card-alt"></i>Saldo</a></li>
     </ol>
 @stop
 
@@ -36,7 +36,7 @@
                 <div class="icon">
                     <i class="ion ion-cash"></i>
                 </div>
-                <a href="#" class="small-box-footer">Histórico<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('admin.historic')}}" class="small-box-footer">Histórico<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
 

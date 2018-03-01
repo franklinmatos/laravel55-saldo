@@ -102,6 +102,9 @@ class BalanceController extends Controller
     }
     
     public function historic(){
-        return view('admin.balance.historic');
+
+        $historics = auth()->user()->historics()->get();
+
+        return view('admin.balance.historic',compact('historics'));
     }
 }

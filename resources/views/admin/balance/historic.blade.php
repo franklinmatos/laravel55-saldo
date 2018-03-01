@@ -6,9 +6,9 @@
     <h1>Histórico de Transações</h1>
 
     <ol class='breadcrumb'>
-        <li><a>DashBoard</a></li>
-        <li><a>Saldo</a></li>
-        <li><a>Transtórico de Transaçõesferir</a></li>
+        <li><a><i class="fa fa-dashboard"></i>DashBoard</a></li>
+        <li><a><i class="fa fa-credit-card-alt"></i>Saldo</a></li>
+        <li><a><i class="fa fa-history"></i> Histórico de Transações</a></li>
     </ol>
 @stop
 
@@ -20,21 +20,24 @@
         <div class="box-body">
         <table class="table table-bordered">
           <tr>
-            <th style="width: 10px">#</th>
-            <th>Task</th>
-            <th>Progress</th>
-            <th style="width: 40px">Label</th>
+            <th width="5%">#</th>
+            <th width="10%">Data</th>
+            <th width="10%">Valor(R$)</th>
+            <th width="20%">Tipo</th>
+            <th width="55%">Destinatário</th>
           </tr>
-          <tr>
-            <td>1.</td>
-            <td>Update software</td>
-            <td>
-              <div class="progress progress-xs">
-                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-              </div>
-            </td>
-            <td><span class="badge bg-red">55%</span></td>
-          </tr>
+            @forelse($historics as $historic)
+                <tr>
+                    <th>{{$historic->id}}</th>
+                    <th>{{$historic->date}}</th>
+                    <th>{{number_format($historic->amount,2,',','')}}</th>
+                    <th>{{$historic->type}}</th>
+                    <th>{{$historic->user_id_transaction}}</th>
+                </tr>
+
+            @empty
+            @endforelse
+
 
         </table>
       </div>

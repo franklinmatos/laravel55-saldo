@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Historic extends Model
 {
@@ -13,4 +14,8 @@ class Historic extends Model
         'total_after' ,
         'user_id_transaction',
         'date'];
+
+    public function getDateAttribute($value){
+        return Carbon::parse($value)->format('d/m/Y');
+    }
 }
