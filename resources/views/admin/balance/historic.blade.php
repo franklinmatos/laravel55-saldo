@@ -31,8 +31,14 @@
                     <th>{{$historic->id}}</th>
                     <th>{{$historic->date}}</th>
                     <th>{{number_format($historic->amount,2,',','')}}</th>
-                    <th>{{$historic->type}}</th>
-                    <th>{{$historic->user_id_transaction}}</th>
+                    <th>{{$historic->type($historic->type)}}</th>
+                    <th>
+                        @if($historic->user_id_transaction)
+                                {{$historic->userEnv->name}}
+                            @else
+                                    -
+                        @endif
+                    </th>
                 </tr>
 
             @empty
