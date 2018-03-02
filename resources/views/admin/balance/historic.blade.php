@@ -15,7 +15,23 @@
 @section('content')
     <div class = "box">
         <div class="box-header">
-            <h3>Histórico de Transações </h3>
+            <form action="" method="POST" class="form form-inline">
+            
+                <input type="text" name="id" class="form-control" placeholder="ID:"/>
+                <input type="date" name="date" class="form-control"/>
+                <select name="type" class="form-control">
+                <option value="">Selecione o Tipo</option>
+                @foreach( $types as  $type)
+                    
+                    <option value="{{$type}}">{{$type}}</option>
+                @endforeach
+                </select>
+
+                
+                    <button type="submit" class="btn btn-primary">Pesquisar</button>
+
+
+            </form>
         </div>
         <div class="box-body">
         <table class="table table-bordered">

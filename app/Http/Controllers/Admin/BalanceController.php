@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\MoneyValidationFormRequest;
 use App\User;
+use App\Models\Historic;
+use App\Models\Balance;
 
 class BalanceController extends Controller
 {
@@ -103,12 +105,12 @@ class BalanceController extends Controller
             ->with('error',$response['message']);
     }
     
-    public function historic(){
+    public function historic(Historic $historic){
 
         $historics = auth()->user()->historics()
                     ->with(['userEnv'])
                     ->paginate($this->totalPaginas);
-
-        return view('admin.balance.historic',compact('historics'));
+        $types = $historic->type();
+        return view('admin.balance.historic',compact('historics', 'types'));
     }
 }
