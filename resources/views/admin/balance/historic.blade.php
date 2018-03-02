@@ -20,7 +20,7 @@
                 <input type="text" name="id" class="form-control" placeholder="ID:"/>
                 <input type="date" name="date" class="form-control"/>
                 <select name="type" class="form-control">
-                <option value="">Selecione o Tipo</option>
+                <option value=""> .:: Selecione o Tipo ::. </option>
                 @foreach( $types as  $type)
                     
                     <option value="{{$type}}">{{$type}}</option>
