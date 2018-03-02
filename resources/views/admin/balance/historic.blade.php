@@ -21,10 +21,10 @@
                 <input type="date" name="date" class="form-control"/>
                 <select name="type" class="form-control">
                 <option value=""> .:: Selecione o Tipo ::. </option>
-                @foreach( $types as  $type)
-                    
-                    <option value="{{$type}}">{{$type}}</option>
-                @endforeach
+                    @foreach( $types as  $type)
+
+                        <option value="{{$type}}">{{$type}}</option>
+                    @endforeach
                 </select>
 
                 
@@ -36,19 +36,19 @@
         <div class="box-body">
         <table class="table table-bordered">
           <tr>
-            <th width="5%">#</th>
-            <th width="10%">Data</th>
-            <th width="10%">Valor(R$)</th>
-            <th width="20%">Tipo</th>
-            <th width="55%">Destinatário</th>
+            <th style="text-align: center" width="5%">#</th>
+            <th style="text-align: center" width="10%">Data</th>
+            <th style="text-align: center" width="10%">Valor(R$)</th>
+            <th style="text-align: left" width="30%">Tipo</th>
+            <th width="45%">Destinatário</th>
           </tr>
             @forelse($historics as $historic)
                 <tr>
-                    <th>{{$historic->id}}</th>
-                    <th>{{$historic->date}}</th>
-                    <th>{{number_format($historic->amount,2,',','')}}</th>
-                    <th>{{$historic->type($historic->type)}}</th>
-                    <th>
+                    <th style="text-align: center">{{$historic->id}}</th>
+                    <th style="text-align: center">{{$historic->date}}</th>
+                    <th style="text-align: center">{{number_format($historic->amount,2,',','')}}</th>
+                    <th style="text-align: left">{{$historic->type($historic->type)}}</th>
+                    <th style="text-align: left">
                         @if($historic->user_id_transaction)
                                 {{$historic->userEnv->name}}
                             @else

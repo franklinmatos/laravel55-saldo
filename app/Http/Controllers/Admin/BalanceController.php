@@ -12,7 +12,7 @@ use App\Models\Balance;
 
 class BalanceController extends Controller
 {
-    private $totalPaginas = 5;
+    private $totalPaginas = 10;
 
     public function index(){
         
