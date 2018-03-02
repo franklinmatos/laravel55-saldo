@@ -16,7 +16,7 @@
     <div class = "box">
         <div class="box-header">
             <form action="" method="POST" class="form form-inline">
-            
+            {!! csrf_field() !!}
                 <input type="text" name="id" class="form-control" placeholder="ID:"/>
                 <input type="date" name="date" class="form-control"/>
                 <select name="type" class="form-control">
