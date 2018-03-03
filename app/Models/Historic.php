@@ -42,4 +42,11 @@ class Historic extends Model
     public function userEnv(){
         return $this->belongsTo(User::class,'user_id_transaction');
     }
+
+    public function search(Array $data,$totalPage)
+    {
+        return $this->where(function($query){
+
+        })->paginate();
+    }
 }
