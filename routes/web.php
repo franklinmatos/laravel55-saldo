@@ -20,7 +20,8 @@ $this->group(['middleware'=>['auth'],'namespace'=> 'Admin','prefix' => 'admin'],
     $this->any('historic-search','BalanceController@searchHistoric')->name('historic.search');
 });
 
-
 $this->get('/','Site\SiteController@index')->name('home');
+
+$this->get('meu-perfil','Admin\UserController@profile')->name('profile')->middleware('auth');
 
 Auth::routes();
