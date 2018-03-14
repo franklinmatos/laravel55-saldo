@@ -114,7 +114,14 @@ class BalanceController extends Controller
         return view('admin.balance.historic',compact('historics', 'types'));
     }
 
-    public function searchHistoric(Request $request){
-            dd($request->all());
+    public function searchHistoric(Request $request, Historic $historic)
+    {
+        $dataFrom = $request->except('_token');
+        
+        $historics = $historic->search($dataFrom, $this->totalPaginas);
+        
+        $types = $historic->type();
+        
+        return view('admin.balance.historic',compact('historics', 'types','dataFrom'));
     }
 }

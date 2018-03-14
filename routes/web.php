@@ -17,7 +17,7 @@ $this->group(['middleware'=>['auth'],'namespace'=> 'Admin','prefix' => 'admin'],
 
 
     $this->get('historic','BalanceController@historic')->name('admin.historic');
-    $this->post('historic','BalanceController@searchHistoric')->name('historic.search');
+    $this->any('historic-search','BalanceController@searchHistoric')->name('historic.search');
 });
 
 

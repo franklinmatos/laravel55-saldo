@@ -15,15 +15,16 @@
 @section('content')
     <div class = "box">
         <div class="box-header">
-            <form action="" method="POST" class="form form-inline">
+            <form action="{{ route('historic.search') }}" method="POST" class="form form-inline">
             {!! csrf_field() !!}
                 <input type="text" name="id" class="form-control" placeholder="ID:"/>
                 <input type="date" name="date" class="form-control"/>
                 <select name="type" class="form-control">
                 <option value=""> .:: Selecione o Tipo ::. </option>
-                    @foreach( $types as  $type)
+                
+                    @foreach( $types as  $key => $type)
 
-                        <option value="{{$type}}">{{$type}}</option>
+                        <option value="{{$key}}">{{$type}}</option>
                     @endforeach
                 </select>
 
@@ -62,7 +63,11 @@
 
 
         </table>
-        {!! $historics->links() !!}
+        @if(isset($dataFrom))
+        {!! $historics->appends($dataFrom)->links() !!}
+        @else
+            {!! $historics->links() !!}
+        @endif
       </div>
 
     </div>
