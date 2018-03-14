@@ -16,13 +16,14 @@ class UserController extends Controller
 
         if($dataForm['password'] != null)
             $dataForm['password'] = bcrypt($dataForm['password']);
-        
+        else
+            unset($dataForm['password']);
         $update = auth()->user()->update($dataForm);
 
         if ($update)
             return redirect()
                             ->route('profile') 
-                            ->with('succes','Perfil Atualizado com Sucesso!!');
+                            ->with('success','Perfil atualizado com sucesso!!');
 
         return redirect()
         ->back() 
