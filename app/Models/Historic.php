@@ -59,7 +59,7 @@ class Historic extends Model
                 $query->where('type',$data['type']);        
             
         })
-        //->where('user_id',auth()->user()->id)
+        
         ->UserAuth()
         ->with(['userEnv'])
         ->paginate($totalPage);
