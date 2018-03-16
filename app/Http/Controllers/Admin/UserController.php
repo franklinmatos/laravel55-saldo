@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProfileFormRequest;
 
 class UserController extends Controller
 {
@@ -11,9 +12,9 @@ class UserController extends Controller
         return view('site.profile.profile');
     }
 
-    public function profileUpdate(Request $request){
+    public function profileUpdate(UpdateProfileFormRequest $request){
         $dataForm = $request->all();
-        
+       
         $user = auth()->user();
        
         $dataform['image'] = $user->image;
@@ -32,19 +33,18 @@ class UserController extends Controller
            
             $extension = $request->image->extension();
             $nameFile = "$name.$extension";
-            $dataform['image'] = $nameFile;
+            // armazena o arquivo dentro da pastas users ue fica em storage/app/public
             $uploadFile = $request->image->storeAs('users',$nameFile);
-           
+            $dataform['image'] = $nameFile;
             if(!$uploadFile)
                 return redirect()
                                 ->back()
                                 ->with('error','Ocorreu um erro ao tentar fazer upload da imagem');
-                               
-
-
         }
-
-        $update = auth()->user()->update($dataForm);
+        
+        $user['image'] = $dataform['image'];
+       
+        $update = $user->update();
 
         if ($update)
             return redirect()
