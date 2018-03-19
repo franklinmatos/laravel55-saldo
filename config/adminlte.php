@@ -127,6 +127,11 @@ return [
                     'text' => 'Histórico',
                     'icon' => 'history',
                     'url'    => 'admin/historic'
+                ],
+                [
+                    'text' => 'Despesas',
+                    'icon' => 'inbox',
+                    'url'    => 'admin/despesa'
                 ]
             ]
         ]

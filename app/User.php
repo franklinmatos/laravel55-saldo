@@ -6,6 +6,7 @@ use App\Models\Historic;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\balance;
+use App\Models\Despesas;
 
 class User extends Authenticatable
 {
@@ -43,5 +44,9 @@ class User extends Authenticatable
        return  $this->where('email', $semail)
             ->get()
             ->first();
+    }
+
+    public function depesas(){
+        return $this->hasMany(Despesas::class);
     }
 }

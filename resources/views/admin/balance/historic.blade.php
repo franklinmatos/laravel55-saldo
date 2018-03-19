@@ -7,7 +7,6 @@
 
     <ol class='breadcrumb'>
         <li><a><i class="fa fa-dashboard"></i>DashBoard</a></li>
-        <li><a><i class="fa fa-credit-card-alt"></i>Saldo</a></li>
         <li><a><i class="fa fa-history"></i> Histórico de Transações</a></li>
     </ol>
 @stop

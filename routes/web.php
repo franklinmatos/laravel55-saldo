@@ -18,6 +18,11 @@ $this->group(['middleware'=>['auth'],'namespace'=> 'Admin','prefix' => 'admin'],
 
     $this->get('historic','BalanceController@historic')->name('admin.historic');
     $this->any('historic-search','BalanceController@searchHistoric')->name('historic.search');
+
+    $this->get('despesa','DespesaController@despesa')->name('admin.despesa');
+    $this->get('add-despesa','DespesaController@addDespesa')->name('admin.addDespesa');
+    $this->post('store-despesa','DespesaController@storeDespesa')->name('admin.storeDespesa');
+    
 });
 
 $this->get('/','Site\SiteController@index')->name('home');
